@@ -1,0 +1,39 @@
+:root {
+  --guardian-blue: #052962;
+  --guardian-blue-bright: #1556b0;
+  --guardian-news-red: #c70000;
+
+  --ink-900: #121212;
+  --ink-700: #333333;
+  --ink-500: #606060;
+  --ink-300: #999999;
+  --ink-100: #dcdcdc;
+  --ink-50:  #f6f6f6;
+
+  --font-sans: 'Guardian Sans', 'Guardian Text Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Guardian Egyptian', 'Source Serif 4', Georgia, serif;
+
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  color: var(--ink-900);
+  background: var(--ink-50);
+}

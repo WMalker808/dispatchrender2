@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: dispatch
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: BRAZE_API_KEY
+        sync: false
+      - key: BRAZE_CAMPAIGN_ID
+        sync: false
+      - key: BRAZE_REST_ENDPOINT
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true

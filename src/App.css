@@ -1,0 +1,423 @@
+/* ── Layout ──────────────────────────────────────────── */
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 60px;
+  background: var(--guardian-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--spacing-4);
+  flex-shrink: 0;
+}
+
+.sidebar-logo {
+  width: 40px;
+  height: 40px;
+  background: var(--guardian-news-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.form-panel {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--spacing-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.preview-panel {
+  width: 300px;
+  background: white;
+  border-left: 1px solid var(--ink-100);
+  overflow-y: auto;
+  padding: var(--spacing-4);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+@media (max-width: 900px) {
+  .preview-panel {
+    display: none;
+  }
+}
+
+/* ── Cards ───────────────────────────────────────────── */
+
+.card {
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--spacing-5);
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--guardian-blue);
+  margin: 0 0 var(--spacing-4) 0;
+  padding-bottom: var(--spacing-3);
+  border-bottom: 1px solid var(--ink-100);
+}
+
+/* ── Form elements ───────────────────────────────────── */
+
+.field {
+  margin-bottom: var(--spacing-4);
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.field label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-700);
+  margin-bottom: var(--spacing-2);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: 1.5px solid var(--ink-100);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-2) var(--spacing-3);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink-900);
+  background: white;
+  transition: border-color 0.15s;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--guardian-blue-bright);
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.char-count {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--ink-300);
+}
+
+.char-count.warn { color: #c8920a; }
+.char-count.over { color: var(--guardian-blue-bright); }
+
+.fetch-status {
+  margin: var(--spacing-1) 0 0;
+  font-size: 12px;
+  color: var(--ink-500);
+}
+
+/* ── Channel card ────────────────────────────────────── */
+
+.channel-badge {
+  display: inline-block;
+  background: var(--ink-50);
+  border: 1px solid var(--ink-100);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: 13px;
+  color: var(--ink-700);
+}
+
+/* ── Audience segments ───────────────────────────────── */
+
+.warning-note {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-3);
+  font-size: 12px;
+  color: #7a5c00;
+  margin-bottom: var(--spacing-4);
+}
+
+.segments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+}
+
+.segment-btn {
+  border: 1.5px solid var(--ink-100);
+  border-radius: var(--radius-sm);
+  background: white;
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: 13px;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  color: var(--ink-700);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.segment-btn.active {
+  border-color: var(--guardian-blue);
+  background: var(--guardian-blue);
+  color: white;
+}
+
+/* ── Timing card ─────────────────────────────────────── */
+
+.timing-buttons {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+}
+
+.timing-btn {
+  flex: 1;
+  border: 1.5px solid var(--ink-100);
+  border-radius: var(--radius-sm);
+  background: white;
+  padding: var(--spacing-3);
+  font-size: 13px;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  color: var(--ink-700);
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.timing-btn.active {
+  border-color: var(--guardian-blue);
+  background: #e8f0fb;
+  color: var(--guardian-blue);
+  font-weight: 600;
+}
+
+.sched-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3);
+}
+
+.sched-panel .field {
+  margin-bottom: 0;
+}
+
+.intelligent-callout {
+  background: #f0f4ff;
+  border: 1px solid #c5d3f5;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: 13px;
+  color: var(--ink-700);
+}
+
+.intelligent-callout strong {
+  display: block;
+  color: var(--guardian-blue);
+  margin-bottom: var(--spacing-1);
+}
+
+.intelligent-callout p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Email preview ───────────────────────────────────── */
+
+.email-preview {
+  border: 1px solid var(--ink-100);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.email-header {
+  background: var(--guardian-blue);
+  color: white;
+  padding: var(--spacing-3) var(--spacing-4);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.email-logo {
+  width: 24px;
+  height: 24px;
+  background: var(--guardian-news-red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.email-brand {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.email-body {
+  padding: var(--spacing-4);
+}
+
+.email-headline {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink-900);
+  margin: 0 0 var(--spacing-2) 0;
+  line-height: 1.4;
+}
+
+.email-text {
+  color: var(--ink-700);
+  font-size: 12px;
+  margin: 0 0 var(--spacing-3) 0;
+  line-height: 1.5;
+}
+
+.email-cta {
+  background: var(--guardian-blue);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-2) var(--spacing-3);
+  font-size: 12px;
+  font-family: var(--font-sans);
+  cursor: default;
+}
+
+/* ── Routing info ────────────────────────────────────── */
+
+.routing-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.routing-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.routing-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-300);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.routing-value {
+  font-size: 13px;
+  color: var(--ink-700);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-1);
+  align-items: center;
+}
+
+.routing-value em {
+  color: var(--ink-300);
+  font-style: normal;
+}
+
+.segment-pill {
+  background: var(--guardian-blue);
+  color: white;
+  padding: 2px var(--spacing-2);
+  border-radius: 12px;
+  font-size: 11px;
+}
+
+/* ── Send button ─────────────────────────────────────── */
+
+.send-btn {
+  width: 100%;
+  background: var(--guardian-news-red);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-3) var(--spacing-4);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, opacity 0.15s;
+  margin-top: auto;
+}
+
+.send-btn:hover:not(:disabled) {
+  background: #a50000;
+}
+
+.send-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.send-btn.sent {
+  background: #2e7d32;
+}
+
+/* ── Success banner ──────────────────────────────────── */
+
+.success-banner {
+  position: fixed;
+  bottom: var(--spacing-5);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2e7d32;
+  color: white;
+  padding: var(--spacing-4) var(--spacing-5);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  z-index: 1000;
+  max-width: 520px;
+  width: calc(100% - var(--spacing-6) * 2);
+}
+
+.success-title {
+  font-size: 14px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.success-dismiss {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.success-dismiss:hover {
+  opacity: 1;
+}
